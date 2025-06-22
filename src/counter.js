@@ -2,14 +2,32 @@
 
 import { useState } from "react";
 
-function useCounter(value = 0) {
-    const [count, setCount] = useState(value)
+function useCounter() {
+    const [value, setValue] = useState(0);
+    const [count, setCount] = useState(0);
 
-    const increment = () => setCount(pre => pre + 5)
-    const decrement = () => setCount(pre => pre - 1)
-    const reset = () => setCount(value)
+    const handleClick = () => {
+        setCount(pre => pre + 1)
 
-    return{count, increment, decrement, reset}
+        setValue(pre => {
+            if(count === 0){
+               return pre + 5
+            }
+            else if(count === 1){
+                return pre + 5
+            }
+            else if(count === 2){
+                return pre - 1
+            }
+            else if(count === 3){
+                return pre - 1
+            }
+            else{
+                return pre
+            }
+        })
+    }
+    return {value, handleClick}
 }
 
 export default useCounter
