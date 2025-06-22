@@ -22,6 +22,36 @@ function useCounter() {
             else if(count === 3){
                 return pre - 1
             }
+            else if(count === 4){
+                return pre - 1
+            }
+            else if(count === 5){
+                return pre - 1
+            }
+            else if(count === 6){
+                return pre - 1
+            }
+            else if(count === 7){
+                return pre - 1
+            }
+            else if(count === 8){
+                return pre - 1
+            }
+            else if(count === 9){
+                return pre - 1
+            }
+            else if(count === 10){
+                return pre - 1
+            }
+            else if(count === 11){
+                return pre - 1
+            }
+             else if(count === 12){
+                return pre + 5
+            }
+             else if(count === 13){
+                return pre + 5
+            }
             else{
                 return pre
             }
