@@ -1,63 +1,26 @@
 // useCounter.js
-
 import { useState } from "react";
 
 function useCounter() {
     const [value, setValue] = useState(0);
-    const [count, setCount] = useState(0);
+    const [isFirstFive, setIsFirstFive] = useState(true);
 
     const handleClick = () => {
-        setCount(pre => pre + 1)
-
-        setValue(pre => {
-            if(count === 0){
-               return pre + 5
+        setValue(prev => {
+            if (prev === 0) {
+                setIsFirstFive(true);
+                return 5;
             }
-            else if(count === 1){
-                return pre + 5
+            if (prev === 5 && isFirstFive) {
+                setIsFirstFive(false);
+                return 10;
             }
-            else if(count === 2){
-                return pre - 1
-            }
-            else if(count === 3){
-                return pre - 1
-            }
-            else if(count === 4){
-                return pre - 1
-            }
-            else if(count === 5){
-                return pre - 1
-            }
-            else if(count === 6){
-                return pre - 1
-            }
-            else if(count === 7){
-                return pre - 1
-            }
-            else if(count === 8){
-                return pre - 1
-            }
-            else if(count === 9){
-                return pre - 1
-            }
-            else if(count === 10){
-                return pre - 1
-            }
-            else if(count === 11){
-                return pre - 1
-            }
-             else if(count === 12){
-                return pre + 5
-            }
-             else if(count === 13){
-                return pre + 5
-            }
-            else{
-                return pre
-            }
-        })
+            if (prev > 0) return prev - 1;
+            return prev;
+        });
     }
-    return {value, handleClick}
+    
+    return { value, handleClick };
 }
 
 export default useCounter
